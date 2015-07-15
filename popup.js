@@ -62,7 +62,10 @@ function gotest(){
 	        url += "os_version=" + deviceDetails.os_version
 	            +"&device=" + deviceDetails.device;
 	   }
-	    url=url.replace(/\s/g,"+");
+	   url += "&scale_to_fit=true";
+	   url += "&url="+($('#urlInput').val() == "" ? 'www.google.com' : $('#urlInput').val());
+	   url += "&resolution=1024x768&speed=1&start=true";
+	   url=url.replace(/\s/g,"+");
 	   chrome.tabs.create({url:url,selected:true});
 }
 
